@@ -29,7 +29,7 @@ if [ ${download_oasis} = true ]; then
     git checkout OASIS3-MCT_${version_oasis}
     cd ..
     mv oasis3-mct oasis3-mct_${version_oasis}
-    cp environment/make.${machine} oasis3-mct_${version_oasis}/util/make_dir/
+    cp environment/${machine}/make.${machine} oasis3-mct_${version_oasis}/util/make_dir/
   else
     echo '  oasis3-mtc_'${version_oasis}' directory already exists.'
   fi
@@ -66,9 +66,13 @@ if [ ${download_croco} = true ]; then
     git clone https://gitlab.inria.fr/croco-ocean/croco.git
     cd croco
     git checkout v${version_croco}
-    mkdir exe_${machine}
-    cp ../environment/jobcomp.belenos exe_${machine}
-    cd ..
+    mkdir exe_${machine} ; cd exe_${machine}
+    cp ../../environment/${machine}/jobcomp .
+    cp ../../environment/${machine}/clean_compilation_croco.sh .
+    mkdir MY_SRC ; cd MY_SRC
+    cp ../../OCEAN/param.h .
+    cp ../../OCEAN/cppdefs.h .
+    cd ../../../
     mv croco croco-v${version_croco}
   else
     echo '  croco-v'${version_croco}' directory already exists.'
@@ -85,6 +89,9 @@ if [ ${download_ww3} = true ]; then
   if [[ ! -d WW3-v${version_ww3} ]]
   then
     git clone https://github.com/NOAA-EMC/WW3
+    cp environment/${machine}/cmplr.env WW3/model/bin/
+    cp environment/${machine}/link.tmpl WW3/model/bin/
+    cp environment/${machine}/w3_setup WW3/model/bin/
     mv WW3 WW3-v${version_ww3}
   else
     echo '  WW3-v'${version_ww3}' directory already exists.'
