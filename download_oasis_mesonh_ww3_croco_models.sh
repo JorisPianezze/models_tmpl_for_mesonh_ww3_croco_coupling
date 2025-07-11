@@ -47,6 +47,7 @@ if [ ${download_mesonh} = true ]; then
     git clone https://src.koda.cnrs.fr/mesonh/mesonh-code.git
     cd mesonh-code
     git checkout PACK-MNH-V${version_mesonh}
+    cp ../environment/${machine}/compilation_mesonh/Makefile.MESONH.mk src/
     cd ..
     mv mesonh-code MNH-V${version_mesonh}
   else
