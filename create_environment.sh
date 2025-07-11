@@ -20,6 +20,10 @@ elif [[ ${HOSTNAME} = 'LALL224858' ]]; then
  
   export machine='laptop_joris'
 
+else
+
+  export machine='unknown'
+
 fi
 
 # ---------------------------------------
