@@ -93,6 +93,7 @@ if [ ${download_ww3} = true ]; then
     cp environment/${machine}/compilation_ww3/cmplr.env WW3/model/bin/
     cp environment/${machine}/compilation_ww3/link.tmpl WW3/model/bin/
     cp environment/${machine}/compilation_ww3/w3_setup WW3/model/bin/
+    cp environment/${machine}/compilation_ww3/w3_make WW3/model/bin/
     cp environment/${machine}/compilation_ww3/switch_NOOASIS WW3/model/bin/
     cp environment/${machine}/compilation_ww3/switch_OASACM_OASOCM WW3/model/bin/
     mv WW3 WW3-v${version_ww3}
