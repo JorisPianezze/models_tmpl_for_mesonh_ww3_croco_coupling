@@ -30,7 +30,7 @@ fi
 #   Link environment file
 # ---------------------------------------
 
-echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ '
+echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ '
 if [ -e environment/${machine}/environment.sh ]; then
   echo '  You are running on '${machine}' with '
   echo '      following environment :          '
@@ -41,4 +41,4 @@ else
   echo '  You are running on '${machine}' and'
   echo '    this machine is not tested yet   '
 fi
-echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ '
+echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ '

@@ -3,7 +3,7 @@
 #SBATCH --job-name=compile
 #SBATCH --time=10:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=1
 #SBATCH -o netcdf.eo%j
 #SBATCH -e netcdf.eo%j
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,7 +57,7 @@ if [ ${compile_libaec} = true ]; then
               --prefix=${dir_to_install}     \
               --libdir=${dir_to_install}/lib \
               CC=${CC} CFLAGS="-fPIC"
-  make -j 8
+  make -j 1
   make install
   make clean
 
@@ -85,12 +85,13 @@ if [ ${compile_hdf5} = true ]; then
   cd ${dir_to_install}/../hdf5-${version_hdf5}
   ./configure --enable-fortran \
               --disable-shared \
+              --enable-parallel \
               --prefix=${dir_to_install} \
               --libdir=${dir_to_install}/lib \
               --with-szlib=${dir_to_install}/include,${dir_to_install}/lib \
               CC=${CC} CFLAGS="-fPIC" FC=${FC} FCFLAGS="-fPIC" \
               LDFLAGS="-L${dir_to_install}/lib" LIBS="-lsz -laec -lz"
-  make -j 8
+  make -j 1
   make install
   make clean
 
@@ -126,7 +127,7 @@ if [ ${compile_netcdf_c} = true ]; then
               CPPFLAGS="-I${dir_to_install}/include" \
               LDFLAGS="-L${dir_to_install}/lib" \
               LIBS="-lhdf5_hl -lhdf5 -lsz -laec -lz -ldl"
-  make -j 8
+  make -j 1
   make install
   make clean
 
@@ -159,7 +160,7 @@ if [ ${compile_netcdf_fortran} = true ]; then
               CPPFLAGS="-I${dir_to_install}/include" \
               LDFLAGS="-L${dir_to_install}/lib" \
               LIBS="-lnetcdf -lhdf5_hl -lhdf5 -lsz -laec -lz -ldl"
-  make -j 8
+  make -j 1
   make install
   make clean
 
