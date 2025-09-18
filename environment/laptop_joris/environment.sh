@@ -15,4 +15,4 @@ export CC=mpicc
 export FC=mpif90
 
 export NETCDF_CONFIG=/home/piaj/03_workdir/2B_devel_MNH_CROCO_XIOS/models_TUTORIAL/libraries/build_netcdf-${version_netcdf_fortran}/bin/nf-config
-export OASISDIR=/home/piaj/03_workdir/2B_devel_MNH_CROCO_XIOS/models_TUTORIAL/oasis3-mct_5.2/BELENOS_oa3-mct
+export OASISDIR=/home/piaj/03_workdir/2B_devel_MNH_CROCO_XIOS/models_TUTORIAL/oasis3-mct_5.2/build_oa3-mct
