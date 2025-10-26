@@ -35,7 +35,10 @@ if [ -e environment/${machine}/environment.sh ]; then
   echo '  You are running on '${machine}' with '
   echo '      following environment :          '
   echo '                                       '
-  ln -sf environment/${machine}/environment.sh .
+  cp environment/${machine}/environment.sh .
+
+  sed -i "s|path_to_models_directory|${PWD}|g" environment.sh
+
   cat environment.sh
 else
   echo '  You are running on '${machine}' and'

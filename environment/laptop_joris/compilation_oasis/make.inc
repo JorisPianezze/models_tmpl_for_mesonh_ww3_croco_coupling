@@ -10,6 +10,6 @@
 # Note: Choose one of these includes files and modify it according to your
 #       local settings. Replace the currently active file with your own.
 #
-include  /home/piaj/03_workdir/2B_devel_MNH_CROCO_XIOS/models_TUTORIAL/oasis3-mct_5.2/util/make_dir/make.$(machine)
+include path_to_models_directory/oasis3-mct_$(version_oasis)/util/make_dir/make.$(machine)
 #
 ### End User configurable options ###

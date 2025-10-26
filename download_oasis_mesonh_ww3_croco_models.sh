@@ -30,7 +30,10 @@ if [ ${download_oasis} = true ]; then
     git checkout OASIS3-MCT_${version_oasis}
     cd ..
     mv oasis3-mct oasis3-mct_${version_oasis}
+    cp environment/${machine}/compilation_oasis/make.inc oasis3-mct_${version_oasis}/util/make_dir/
     cp environment/${machine}/compilation_oasis/make.${machine} oasis3-mct_${version_oasis}/util/make_dir/
+    sed -i "s|path_to_models_directory|${PWD}|g" oasis3-mct_${version_oasis}/util/make_dir/make.inc
+    sed -i "s|path_to_models_directory|${PWD}|g" oasis3-mct_${version_oasis}/util/make_dir/make.${machine}
   else
     echo '  oasis3-mtc_'${version_oasis}' directory already exists.'
   fi

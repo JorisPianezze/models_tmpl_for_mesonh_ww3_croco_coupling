@@ -10,7 +10,7 @@ CHAN            = MPI1
 # Paths for libraries, object files and binaries
 #
 # COUPLE	: path for oasis3-mct main directory
-COUPLE          = /home/piaj/03_workdir/2B_devel_MNH_CROCO_XIOS/models_TUTORIAL/oasis3-mct_5.2
+COUPLE          = path_to_models_directory/oasis3-mct_$(version_oasis)
 #
 # ARCHDIR       : directory created when compiling
 ARCHDIR         = $(COUPLE)/build_oa3-mct
@@ -19,7 +19,7 @@ ARCHDIR         = $(COUPLE)/build_oa3-mct
 MPIDIR           = /usr
 MPIBIN           = $(MPIDIR)/bin
 MPI_INCLUDE      = $(MPIDIR)/include
-MPILIB           = -L$(MPIDIR)/lib
+MPILIB           = -L$(MPIDIR)/lib -lmpi
 #
 # NETCDF library
 NETCDF_INCLUDE  = `${NETCDF_CONFIG} --includedir`
@@ -28,12 +28,12 @@ NETCDF_LIBRARY  = `${NETCDF_CONFIG} --flibs`
 # Compiling and other commands
 # You may have to load the corresponding intel module to compile
 MAKE        = make
-F90         = $(MPIBIN)/mpif90 -Wall -I$(MPI_INCLUDE) 
+F90         = $(MPIBIN)/mpif90
 F           = $(F90)
 f90         = $(F90)
 f           = $(F90)
-CC          = $(MPIBIN)/mpicc -I$(MPI_INCLUDE)
-LD          = $(MPIBIN)/mpif90 $(MPILIB)
+CC          = $(MPIBIN)/mpicc
+LD          = $(MPIBIN)/mpif90
 AR          = ar
 ARFLAGS     = -ruv
 #
