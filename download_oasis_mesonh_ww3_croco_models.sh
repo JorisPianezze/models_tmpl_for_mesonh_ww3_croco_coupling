@@ -9,13 +9,18 @@
 #         ~~~~~~~~~~~~~~
 # ###################################
 
-source environment.sh
-
 export download_oasis=true
 export download_mesonh=true
 export download_croco=true
-export download_ww3=true
-export download_xios=true
+export download_ww3=false
+export download_xios=false
+
+if [ ! -e environment.sh ]; then
+  echo '  envionment.sh file is missing'
+  exit
+else
+  source environment.sh
+fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   Download oasis3-mct_${version_oasis}

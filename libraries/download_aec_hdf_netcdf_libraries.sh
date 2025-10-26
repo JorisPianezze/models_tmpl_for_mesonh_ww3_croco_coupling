@@ -9,7 +9,12 @@
 #         ~~~~~~~~~~~~~~
 # ###################################
 
-source ../environment.sh
+if [ ! -e ../environment.sh ]; then
+  echo '  envionment.sh file is missing'
+  exit
+else
+  source ../environment.sh
+fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   Download libaec-${version_libaec}

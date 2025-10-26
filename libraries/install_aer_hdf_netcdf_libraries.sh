@@ -13,11 +13,16 @@
 #          (08.07.2025)
 #         ~~~~~~~~~~~~~~
 #   Install AEC, HDF5 and NETCDF
-#     librairies with sbatch
+#           librairies
 #         ~~~~~~~~~~~~~~
 # ###################################
 
-source ../environment.sh
+if [ ! -e ../environment.sh ]; then
+  echo '  envionment.sh file is missing'
+  exit
+else
+  source ../environment.sh
+fi
 
 export dir_to_install=${PWD}/build_netcdf-${version_netcdf_fortran}
 
