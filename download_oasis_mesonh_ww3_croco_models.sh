@@ -35,7 +35,7 @@ if [ ${download_oasis} = true ]; then
     sed -i "s|path_to_models_directory|${PWD}|g" oasis3-mct_${version_oasis}/util/make_dir/make.inc
     sed -i "s|path_to_models_directory|${PWD}|g" oasis3-mct_${version_oasis}/util/make_dir/make.${machine}
   else
-    echo '  oasis3-mtc_'${version_oasis}' directory already exists.'
+    echo '  oasis3-mtc_'${version_oasis}' directory already exists -> nothing has been done.'
   fi
 
 fi
@@ -55,7 +55,7 @@ if [ ${download_mesonh} = true ]; then
     #cd ..
     mv mesonh-code MNH-V${version_mesonh}
   else
-    echo '  MNH-V'${version_mesonh}' directory already exists.'
+    echo '  MNH-V'${version_mesonh}' directory already exists -> nothing has been done.'
   fi
 
 fi
@@ -71,16 +71,17 @@ if [ ${download_croco} = true ]; then
     git clone https://gitlab.inria.fr/croco-ocean/croco.git
     cd croco
     git checkout v${version_croco}
-    mkdir exe_${machine} ; cd exe_${machine}
+    mkdir exe_CPLOA_${machine} ; cd exe_CPLOA_${machine}
     cp ../../environment/${machine}/compilation_croco/jobcomp .
     cp ../../environment/${machine}/compilation_croco/clean.sh .
     mkdir MY_SRC ; cd MY_SRC
-    cp ../../OCEAN/param.h .
-    cp ../../OCEAN/cppdefs.h .
+    cp ../../../environment/${machine}/compilation_croco/MY_SRC_CPLOA/param.h .
+    cp ../../../environment/${machine}/compilation_croco/MY_SRC_CPLOA/cppdefs.h .
     cd ../../../
     mv croco croco-v${version_croco}
+    sed -i "s|path_to_models_directory|${PWD}|g" croco-v${version_croco}/exe_CPLOA_${machine}/jobcomp
   else
-    echo '  croco-v'${version_croco}' directory already exists.'
+    echo '  croco-v'${version_croco}' directory already exists -> nothing has been done.'
   fi
 
 fi
@@ -102,7 +103,7 @@ if [ ${download_ww3} = true ]; then
     cp environment/${machine}/compilation_ww3/switch_OASACM_OASOCM WW3/model/bin/
     mv WW3 WW3-v${version_ww3}
   else
-    echo '  WW3-v'${version_ww3}' directory already exists.'
+    echo '  WW3-v'${version_ww3}' directory already exists -> nothing has been done.'
   fi
 
 fi
@@ -120,7 +121,7 @@ if [ ${download_xios} = true ]; then
     cp environment/${machine}/compilation_xios/arch-${machine}.fcm xios-3.0-trunk/arch/
     cp environment/${machine}/compilation_xios/arch-${machine}.path xios-3.0-trunk/arch/
   else
-    echo '  xios-'${version_xios}' directory already exists.'
+    echo '  xios-'${version_xios}' directory already exists -> nothing has been done.'
   fi
 
 fi
