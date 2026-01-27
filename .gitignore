@@ -1,1 +1,9 @@
-environment.sh
+/environment.sh
+MNH-V*
+libraries/build_netcdf-*
+libraries/hdf5-*
+libraries/libaec-*
+libraries/netcdf-c-*
+libraries/netcdf-fortran-*
+oasis3-mct_*
+croco-v*
