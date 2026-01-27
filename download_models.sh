@@ -11,6 +11,7 @@
 
 export download_oasis=true
 export download_mesonh=true
+export download_wrf=false
 export download_croco=false
 export download_ww3=false
 export download_xios=false
@@ -64,6 +65,27 @@ if [ ${download_mesonh} = true ]; then
   fi
 
 fi
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#   Download wrf-crocov${version_wrf}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if [ ${download_wrf} = true ]; then
+
+  if [[ ! -d wrf-crocov${version_wrf} ]]
+  then
+    git clone git@github.com:wrf-croco/WRF.git
+    cd WRF
+    git checkout wrf-crocov${version_wrf}
+    #cp ../environment/${machine}/compilation_mesonh/Makefile.MESONH.mk src/
+    cd ..
+    mv WRF wrf-crocov${version_wrf}
+  else
+    echo '  wrf-crocov'${version_wrf}' directory already exists -> nothing has been done.'
+  fi
+
+fi
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   Download croco-v${version_croco}
