@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /environment.sh
+=======
+environment.sh
+>>>>>>> 86b51e2f0076b8696252186deded3f1fbbe06fe2
 MNH-V*
 libraries/build_netcdf-*
 libraries/hdf5-*
@@ -6,4 +10,7 @@ libraries/libaec-*
 libraries/netcdf-c-*
 libraries/netcdf-fortran-*
 oasis3-mct_*
+<<<<<<< HEAD
 croco-v*
+=======
+>>>>>>> 86b51e2f0076b8696252186deded3f1fbbe06fe2
