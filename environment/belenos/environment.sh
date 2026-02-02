@@ -24,7 +24,7 @@ export version_mesonh='5-7-2'
 export version_croco='2.1.0'
 export version_ww3='7.14'
 
-export NETCDF_CONFIG=${HOME}/models_NANMADOL/libraries/build_netcdf-${version_netcdf_fortran}/bin/nf-config
-export OASISDIR=${HOME}/models_NANMADOL/oasis3-mct_5.2/BELENOS_oa3-mct
+export NETCDF_CONFIG=path_to_models_directory/libraries/build_netcdf-${version_netcdf_fortran}/bin/nf-config
+export OASISDIR=path_to_models_directory/oasis3-mct_${version_oasis}/build_oa3-mct
 
 module list

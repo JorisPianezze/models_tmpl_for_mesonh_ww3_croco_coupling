@@ -10,10 +10,10 @@ CHAN            = MPI1
 # Paths for libraries, object files and binaries
 #
 # COUPLE	: path for oasis3-mct main directory
-COUPLE          = /home/cnrm_other/ge/erla/pianezzej/models_NANMADOL/oasis3-mct_5.2
+COUPLE          = path_to_models_directory/oasis3-mct_$(version_oasis)
 #
 # ARCHDIR       : directory created when compiling
-ARCHDIR         = $(COUPLE)/BELENOS_oa3-mct
+ARCHDIR         = $(COUPLE)/build_oa3-mct
 #
 # MPI library
 MPIDIR           = /opt/mpi/openmpi-icc/4.0.2.2
