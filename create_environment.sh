@@ -16,6 +16,10 @@ elif [[ ${HOSTNAME} = 'nuwa' ]]; then
 
   export machine='nuwa'
 
+elif [[ ${HOSTNAME} = 'turpan'* ]]; then
+
+  export machine='turpan'
+
 elif [[ ${HOSTNAME} = 'LALL224858' ]]; then
  
   export machine='laptop_joris'
@@ -33,7 +37,7 @@ fi
 echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ '
 if [ -e environment/${machine}/environment.sh ]; then
   echo '  You are running on '${machine}' with '
-  echo '      following environment :          '
+  echo '  following environment :              '
   echo '                                       '
   cp environment/${machine}/environment.sh .
 
@@ -42,6 +46,6 @@ if [ -e environment/${machine}/environment.sh ]; then
   cat environment.sh
 else
   echo '  You are running on '${machine}' and'
-  echo '    this machine is not tested yet   '
+  echo '  this machine is not tested yet     '
 fi
 echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ '
