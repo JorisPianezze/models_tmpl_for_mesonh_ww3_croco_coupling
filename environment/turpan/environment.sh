@@ -5,10 +5,13 @@ module purge
 export machine='turpan'
 
 module load nvidia
-module load nvhpc-nompi/22.9
-module load openmpi/nvidia/4.1.4-gpu
+module load nvhpc/22.11
+module load cmake/3.25.1
 
-export MPI_ROOT=/usr/local/openmpi/nvidia/4.1.4-gpu
+export CUDALEVEL=cuda11.8
+export OPT_CPTCAP=cc80
+
+export MPI_ROOT=/usr/local/nvidia/nvhpc/Linux_aarch64/22.11/comm_libs/mpi
 
 export CC=mpicc
 export FC=mpif90
