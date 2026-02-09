@@ -12,9 +12,9 @@
 export download_oasis=true
 export download_mesonh=true
 export download_wrf=false
-export download_croco=false
+export download_croco=true
 export download_ww3=false
-export download_xios=false
+export download_xios=true
 
 if [ ! -e environment.sh ]; then
   echo '  envionment.sh file is missing'
@@ -55,11 +55,12 @@ if [ ${download_mesonh} = true ]; then
   if [[ ! -d MNH-V${version_mesonh} ]]
   then
     git clone https://src.koda.cnrs.fr/mesonh/mesonh-code.git
-    #cd mesonh-code
-    #git checkout PACK-MNH-V${version_mesonh}
-    #cp ../environment/${machine}/compilation_mesonh/Makefile.MESONH.mk src/
-    #cd ..
+    cd mesonh-code
+    git checkout PACK-MNH-V${version_mesonh}-OPENACC-4-KAIROS-GH200
+    cd ..
     mv mesonh-code MNH-V${version_mesonh}
+    cp environment/${machine}/compilation_mesonh/configure MNH-V${version_mesonh}/src/
+    sed -i "s|path_to_models_directory|${PWD}|g" MNH-V${version_mesonh}/src/configure
   else
     echo '  MNH-V'${version_mesonh}' directory already exists -> nothing has been done.'
   fi
