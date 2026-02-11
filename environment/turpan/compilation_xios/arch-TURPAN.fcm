@@ -6,7 +6,7 @@
 %FCOMPILER      mpif90 -noswitcherror
 %LINKER         mpif90 -noswitcherror
 
-%BASE_CFLAGS    -std=c++98 -D__NONE__
+%BASE_CFLAGS    -std=c++11 -D__NONE__
 %PROD_CFLAGS    -O3 -D BOOST_DISABLE_ASSERTS
 %DEV_CFLAGS     -g -O2
 %DEBUG_CFLAGS   -g 
